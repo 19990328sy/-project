@@ -7,7 +7,6 @@ import com.miaosha.entity.Miaosha;
 import com.miaosha.exception.MiaoshaCloseException;
 import com.miaosha.exception.MiaoshaException;
 import com.miaosha.exception.RepeatMiaoshaException;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
@@ -43,4 +42,8 @@ public interface MiaoshaService {
      */
    MiaoshaExecution executeMiaosha(long miaoshaId, long userPhone, String md5)
    throws MiaoshaException, RepeatMiaoshaException, MiaoshaCloseException;
+
+   /**
+    * 做了一些修改
+    * */
 }
