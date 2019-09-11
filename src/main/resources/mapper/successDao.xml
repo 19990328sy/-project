@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.miaosha.dao.SuccessDao">
+    <insert id="insertSuccessMiaosha">
+        insert into success_miaosha (miaosha_id,user_phone,state) values (#{miaoshaId},#{userPhone},0);
+    </insert>
+
+    <select id="queryByIdWithMiaosha" resultType="SuccessMiaosha">
+        select
+        sm.miaosha_id,
+        sm.user_phone,
+        sm.create_time,
+        sm.state,
+        s.miaosha_id " miaosha.miaosha_id",
+        s.name " miaosha.name",
+        s.number " miaosha.number",
+        s.start_time " miaosha.start_time",
+        s.end_time " miaosha.end_time",
+        s.create_time " miaosha.create_time"
+        from success_miaosha sm inner join miaosha s on sm.miaosha_id=s.miaosha_id
+        where sm.miaosha_id=#{miaoshaId} and sm.user_phone=#{userPhone}
+    </select>
+</mapper>
